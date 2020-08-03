@@ -3352,6 +3352,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -5111,8 +5115,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {};
   },
-  mounted: function mounted() {// this.test_login();
-  },
+  mounted: function mounted() {},
   created: function created() {},
   methods: {}
 });
@@ -55012,19 +55015,19 @@ var render = function() {
               )
             : _vm._e(),
           _vm._v(" "),
-          _c(
-            "form",
-            {
-              attrs: { method: "post" },
-              on: {
-                submit: function($event) {
-                  $event.preventDefault()
-                  return _vm.login($event)
+          _c("div", { staticClass: "newpasswordform col-md-8 col-12 " }, [
+            _c(
+              "form",
+              {
+                attrs: { method: "post" },
+                on: {
+                  submit: function($event) {
+                    $event.preventDefault()
+                    return _vm.login($event)
+                  }
                 }
-              }
-            },
-            [
-              _c("div", { staticClass: "newpasswordform col-md-8 col-12 " }, [
+              },
+              [
                 _c("div", { staticClass: "newpass col-sm-12 d-sm-flex " }, [
                   _c("div", { staticClass: "col-12 col-sm-6 newpass1" }, [
                     _vm._v("Введите email")
@@ -55086,14 +55089,50 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _vm._m(0)
-              ])
-            ]
-          )
+              ]
+            )
+          ])
         ]
       )
     ]),
     _vm._v(" "),
-    _vm._m(1),
+    _c("div", { staticClass: "container " }, [
+      _c(
+        "div",
+        {
+          staticClass:
+            "row newpassword col-lg-12 d-flex justify-content-center col-md-12 col-sm-12 col-12"
+        },
+        [
+          _c("div", { staticClass: "col-6 newpasswordform col-md-8 col-12" }, [
+            _c(
+              "div",
+              {
+                staticClass: "col-12 newpassubmit d-flex justify-content-center"
+              },
+              [
+                _c(
+                  "a",
+                  {
+                    attrs: {
+                      href:
+                        "https://oauth.vk.com/authorize?client_id=6721477&redirect_uri=http://localhost/authvk&response_type=code"
+                    }
+                  },
+                  [
+                    _vm._v("Войти через ВК\n                       "),
+                    _c("img", {
+                      staticClass: "img-fluid",
+                      attrs: { src: "/images/vk.png" }
+                    })
+                  ]
+                )
+              ]
+            )
+          ])
+        ]
+      )
+    ]),
     _vm._v(" "),
     _c("div", { staticClass: "container " }, [
       _c(
@@ -55138,42 +55177,6 @@ var staticRenderFns = [
       { staticClass: "col-12 newpassubmit d-flex justify-content-center" },
       [_c("input", { attrs: { type: "submit", value: "Войти" } })]
     )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container " }, [
-      _c(
-        "div",
-        {
-          staticClass:
-            "row newpassword col-lg-12 d-flex justify-content-center col-md-12 col-sm-12 col-12"
-        },
-        [
-          _c("div", { staticClass: "col-6 newpasswordform col-md-8 col-12" }, [
-            _c(
-              "div",
-              {
-                staticClass: "col-12 newpassubmit d-flex justify-content-center"
-              },
-              [
-                _c(
-                  "a",
-                  {
-                    attrs: {
-                      href:
-                        "https://oauth.vk.com/authorize?client_id=6721477&redirect_uri=http://localhost/authvk&response_type=code"
-                    }
-                  },
-                  [_vm._v("Войти через ВК")]
-                )
-              ]
-            )
-          ])
-        ]
-      )
-    ])
   }
 ]
 render._withStripped = true
@@ -57408,7 +57411,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._v("\n    rules\n")])
+  return _c("div", [_vm._v("\nrules 1\n    ")])
 }
 var staticRenderFns = []
 render._withStripped = true

@@ -7,8 +7,9 @@
                         {{err_mess}}
                 </div>
             </div>
-            <form v-on:submit.prevent="login" method="post">
+
             <div class="newpasswordform col-md-8 col-12 ">
+                <form v-on:submit.prevent="login" method="post">
                     <div class="newpass col-sm-12 d-sm-flex ">
                         <div class="col-12 col-sm-6 newpass1" >Введите email</div>
                         <div class="col-12 col-sm-6 newpass2" >
@@ -22,8 +23,9 @@
                     <div class="col-12 newpassubmit d-flex justify-content-center">
                         <input type="submit" value="Войти">
                     </div>
+                </form>
             </div>
-            </form>
+
         </div>
     </div>
 
@@ -31,7 +33,9 @@
         <div class="row newpassword col-lg-12 d-flex justify-content-center col-md-12 col-sm-12 col-12">
             <div class="col-6 newpasswordform col-md-8 col-12">
                 <div class="col-12 newpassubmit d-flex justify-content-center">
-                       <a href= 'https://oauth.vk.com/authorize?client_id=6721477&redirect_uri=http://localhost/authvk&response_type=code'>Войти через ВК</a>
+                       <a href= 'https://oauth.vk.com/authorize?client_id=6721477&redirect_uri=http://localhost/authvk&response_type=code'>Войти через ВК
+                           <img :src="'/images/vk.png'" class="img-fluid">
+                       </a>
                 </div>
             </div>
         </div>
