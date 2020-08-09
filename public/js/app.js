@@ -3015,6 +3015,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -54445,12 +54447,12 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("div", { staticClass: "container choose_search" }, [
-      _vm._v("\n    Работа с постами пользователя\n    ")
-    ]),
+    _vm.zero_posts_flag == 0
+      ? _c("div", { staticClass: "container" }, [_vm._m(0)])
+      : _vm._e(),
     _vm._v(" "),
     _vm.zero_posts_flag == 1
-      ? _c("div", { staticClass: "container" }, [_vm._m(0)])
+      ? _c("div", { staticClass: "container" }, [_vm._m(1)])
       : _vm._e(),
     _vm._v(" "),
     _c(
@@ -54462,13 +54464,13 @@ var render = function() {
           { attrs: { name: "fade", tag: "div" } },
           _vm._l(_vm.posts, function(post, number) {
             return _c("div", { key: post.id, staticClass: "row posts " }, [
-              _c("div", { staticClass: "col-12 col-md-12 d-md-flex" }, [
+              _c("div", { staticClass: "col-lg-3 col-md-4 d-md-flex" }, [
                 _vm.posts_img_arr[number].img_in_arr.length != 0
                   ? _c(
                       "div",
                       {
                         staticClass:
-                          "col-12  d-flex justify-content-center col-md-2 col-lg-2 "
+                          "carousel_posts col-12  d-flex justify-content-center col-md-12 col-lg-12"
                       },
                       [
                         _c("carousel", {
@@ -54489,7 +54491,7 @@ var render = function() {
                 "div",
                 {
                   staticClass:
-                    "col-12  justify-content-center col-md-6 d-md-block col-lg-5 headerref "
+                    "col-lg-4  justify-content-center col-md-6 d-md-block headerref"
                 },
                 [
                   _c(
@@ -54643,7 +54645,7 @@ var render = function() {
     _c(
       "button",
       {
-        staticClass: "btn btn-success",
+        staticClass: "col-12 btn btn-success",
         attrs: { type: "button" },
         on: {
           click: function($event) {
@@ -54651,7 +54653,7 @@ var render = function() {
           }
         }
       },
-      [_vm._v("Success")]
+      [_vm._v("Сохранить")]
     ),
     _vm._v(" "),
     _c("div", { staticClass: "container" }, [
@@ -54693,6 +54695,16 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row zeroposts " }, [
+      _c("div", { staticClass: "col-12 d-flex justify-content-center" }, [
+        _vm._v("\n                Работа с постами пользователя\n            ")
+      ])
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
