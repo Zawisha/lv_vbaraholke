@@ -1,6 +1,13 @@
 <template>
     <div class="container ">
 <div v-if="alert_flag==0">
+    <div class="container">
+        <div class="row ">
+            <div class="col-12 adminka" v-if="is_admin_ent==1" v-on:click="delete_post"  >
+                Удалить с правами админа
+            </div>
+        </div>
+    </div>
         <div class="row userpostcolm"  v-for="(post, number) in post_data">
             <div class="col-12 comeback">
                 <router-link  :to="{ path: '/'}">Вернуться назад</router-link>
@@ -74,14 +81,41 @@
                 post_data:'',
                 posts_img_arr:[],
                 alert_flag:0,
-                call_mobile:'Позвонить'
+                call_mobile:'Позвонить',
+                is_admin_ent:0
             }
         },
 
         created() {
             this.get_post_data(this.post_data);
+            this.is_admin();
         },
         methods: {
+            delete_post()
+            {
+                axios
+                    .post('/admin_delete_post',{
+                        post_id:this.$route.params.id,
+                    }).then(response => {
+                    if(response.data.length != 0)
+                    {
+                         Vue.router.push({name:'MainPosts'})
+                    }
+
+                })
+            },
+            is_admin()
+            {
+                axios
+                    .post('/is_admin',{
+                    }).then(response => {
+                    if(response.data.length != 0)
+                    {
+                        this.is_admin_ent=response.data[0].status
+                    }
+
+                })
+            },
 
             write_message()
             {

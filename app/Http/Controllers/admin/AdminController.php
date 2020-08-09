@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Images;
 use App\Posts;
 use App\Status;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class AdminController extends Controller
 {
@@ -66,6 +68,27 @@ class AdminController extends Controller
         return response([
             'status' => 'success',
         ], 200);
+    }
+    public function admin_delete_post(Request $request)
+    {
+        $post_id = $request->input('post_id');
+        $posts_list = Posts::where('id', '=',$post_id)->delete();
+        if($posts_list == 1){
+            $img_list = Images::where('post_id', '=',$post_id)->get();
+            foreach ($img_list as $img) {
+                File::delete((public_path('/images/posts/'.$img['path'])));
+            }
+            Images::where('post_id', '=',$post_id)->delete();
+            return response([
+                'status' => 'success',
+            ], 200);
+        }
+        else
+        {
+            return response([
+                'status' => 'failure',
+            ], 200);
+        }
     }
 
 }

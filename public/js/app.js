@@ -4391,19 +4391,48 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       post_data: '',
       posts_img_arr: [],
       alert_flag: 0,
-      call_mobile: 'Позвонить'
+      call_mobile: 'Позвонить',
+      is_admin_ent: 0
     };
   },
   created: function created() {
     this.get_post_data(this.post_data);
+    this.is_admin();
   },
   methods: {
+    delete_post: function delete_post() {
+      axios.post('/admin_delete_post', {
+        post_id: this.$route.params.id
+      }).then(function (response) {
+        if (response.data.length != 0) {
+          Vue.router.push({
+            name: 'MainPosts'
+          });
+        }
+      });
+    },
+    is_admin: function is_admin() {
+      var _this = this;
+
+      axios.post('/is_admin', {}).then(function (response) {
+        if (response.data.length != 0) {
+          _this.is_admin_ent = response.data[0].status;
+        }
+      });
+    },
     write_message: function write_message() {
       Vue.router.push({
         name: 'chat',
@@ -4425,7 +4454,7 @@ __webpack_require__.r(__webpack_exports__);
     //    console.log(this.posts_img_arr)
     // },
     get_post_data: function get_post_data(inp) {
-      var _this = this;
+      var _this2 = this;
 
       this.alert_flag = 0;
       var post_id = this.$route.params.id;
@@ -4465,13 +4494,13 @@ __webpack_require__.r(__webpack_exports__);
               img_in_arr: img_arr
             });
           });
-          _this.post_data = _inp;
-          _this.posts_img_arr = images;
+          _this2.post_data = _inp;
+          _this2.posts_img_arr = images;
         } else {
-          _this.alert_flag = 1;
+          _this2.alert_flag = 1;
         }
       })["catch"](function (error) {
-        _this.alert_flag = 1;
+        _this2.alert_flag = 1;
       });
     }
   }
@@ -56518,6 +56547,25 @@ var render = function() {
       ? _c(
           "div",
           [
+            _c("div", { staticClass: "container" }, [
+              _c("div", { staticClass: "row " }, [
+                _vm.is_admin_ent == 1
+                  ? _c(
+                      "div",
+                      {
+                        staticClass: "col-12 adminka",
+                        on: { click: _vm.delete_post }
+                      },
+                      [
+                        _vm._v(
+                          "\n                Удалить с правами админа\n            "
+                        )
+                      ]
+                    )
+                  : _vm._e()
+              ])
+            ]),
+            _vm._v(" "),
             _vm._l(_vm.post_data, function(post, number) {
               return _c("div", { staticClass: "row userpostcolm" }, [
                 _c(

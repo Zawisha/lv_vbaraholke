@@ -57,5 +57,7 @@ Route::middleware('auth:api')->group(function () {
     Route::post('/get_data_scroll_user', 'ChatController@get_data_scroll_user');
     Route::post('/save_message_chat', 'ChatController@save_message_chat');
 
+    Route::post('/admin_delete_post', 'admin\AdminController@admin_delete_post');
+
 
 });
