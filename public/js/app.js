@@ -4194,6 +4194,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -4955,7 +4959,9 @@ __webpack_require__.r(__webpack_exports__);
           'Content-Type': 'multipart/form-data'
         }
       }).then(function () {
-        console.log('SUCCESS!!');
+        Vue.router.push({
+          name: 'add_advertisement3'
+        });
       })["catch"](function () {
         console.log('FAILURE!!');
       });
@@ -4980,12 +4986,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {};
   },
-  mounted: function mounted() {// this.test_login();
-  },
+  mounted: function mounted() {},
   created: function created() {},
   methods: {}
 });
@@ -5796,8 +5805,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -5822,6 +5829,11 @@ __webpack_require__.r(__webpack_exports__);
   },
   created: function created() {},
   methods: {
+    goto_adminka: function goto_adminka() {
+      Vue.router.push({
+        name: 'MainViewAdmin'
+      });
+    },
     get_user_info_channel: function get_user_info_channel() {
       axios.post('/get_user_info_channel', {});
     },
@@ -56291,13 +56303,13 @@ var render = function() {
           { attrs: { name: "fade", tag: "div" } },
           _vm._l(_vm.posts, function(post, number) {
             return _c("div", { key: post.id, staticClass: "row posts " }, [
-              _c("div", { staticClass: "col-12 col-md-12 d-md-flex" }, [
+              _c("div", { staticClass: "col-lg-3 col-md-4 d-md-flex" }, [
                 _vm.posts_img_arr[number].img_in_arr.length != 0
                   ? _c(
                       "div",
                       {
                         staticClass:
-                          "col-12  d-flex justify-content-center col-md-2 col-lg-2 "
+                          "carousel_posts col-12  d-flex justify-content-center col-md-12 col-lg-12 "
                       },
                       [
                         _c("carousel", {
@@ -56308,7 +56320,7 @@ var render = function() {
                     )
                   : _c("div", [
                       _c("img", {
-                        staticClass: "img-fluid",
+                        staticClass: "img-fluid img_size_carousel",
                         attrs: { src: "/images/nophoto.png" }
                       })
                     ])
@@ -56318,7 +56330,7 @@ var render = function() {
                 "div",
                 {
                   staticClass:
-                    "col-12  justify-content-center col-md-6 d-md-block col-lg-5 headerref "
+                    "col-lg-4  justify-content-center col-md-6 d-md-block headerref "
                 },
                 [
                   _c(
@@ -56403,7 +56415,7 @@ var render = function() {
                 "div",
                 {
                   staticClass:
-                    "col-12 d-flex justify-content-center col-md-3 align-self-md-end  price "
+                    "col-lg-3 d-flex justify-content-center col-md-3 align-self-md-end  price "
                 },
                 [
                   _vm._v(
@@ -56453,6 +56465,18 @@ var render = function() {
             1
           )
         ]
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "col-xl-3 col-lg-5 col-md-8 " }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-primary btn-block procedure_button",
+          attrs: { type: "button" },
+          on: { click: _vm.test }
+        },
+        [_vm._v("test")]
       )
     ])
   ])
@@ -57298,9 +57322,24 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._v("\n    3\n")])
+  return _vm._m(0)
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "container " }, [
+      _c("div", { staticClass: "row  col-12  addimgrow " }, [
+        _c("div", { staticClass: "thxmod col-12 justify-content-center" }, [
+          _vm._v(
+            "\n            Спасибо. Ваше объявление проходит модерацию.\n        "
+          )
+        ])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -57869,15 +57908,11 @@ var render = function() {
         _vm.is_admin_ent == 1
           ? _c(
               "div",
-              { staticClass: "col-12 adminka" },
-              [
-                _c(
-                  "router-link",
-                  { attrs: { to: { name: "MainViewAdmin" } } },
-                  [_vm._v("\n                Админка\n            ")]
-                )
-              ],
-              1
+              {
+                staticClass: "col-12 adminka",
+                on: { click: _vm.goto_adminka }
+              },
+              [_vm._v("\n                Админка\n        ")]
             )
           : _vm._e()
       ])

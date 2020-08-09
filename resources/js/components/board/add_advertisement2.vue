@@ -180,7 +180,7 @@
                         }
                     }
                 ).then(function(){
-                    console.log('SUCCESS!!');
+                    Vue.router.push({name:'add_advertisement3'})
                 })
                     .catch(function(){
                         console.log('FAILURE!!');

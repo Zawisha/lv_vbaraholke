@@ -12,6 +12,15 @@ header  {
     width: 220px;
 }
 
+ .carousel__item >span > img {
+   width:200px;
+   height: 125px;
+}
+ .img_size_carousel {
+     width:200px;
+     height: 125px;
+ }
+
 .vk{
     width: 80px;
 }
@@ -200,7 +209,7 @@ header  {
 }
 
 .headerref    {
-    margin-left: 50px;
+    /*margin-left: 50px;*/
     text-align: left;
     font-family: 'Arial','Helvetica','Tahoma', sans-serif;
 
@@ -209,7 +218,7 @@ header  {
 .price  {
     margin-top: 90px;
     margin-right: 10px;
-    margin-left: 180px;
+    margin-left: 150px;
     text-align: right;
     color: #3f9386;
     font-size: 20px;
@@ -225,9 +234,10 @@ header  {
 }
 
 .descr  {
-    margin-top: 10px;
+    /*margin-top: 10px;*/
     font-family: 'Arial','Helvetica','Tahoma', sans-serif;
-    margin-left: 40px;
+    /*margin-left: 40px;*/
+    padding-left: 0px;
 }
 
 .infosec    {
@@ -455,6 +465,7 @@ header  {
     margin-right: 6px;
 }
 
+
 @media screen and (max-width: 1200px) {
     .addob {
         text-align: center;
@@ -482,7 +493,7 @@ header  {
     }
 
     .headerref {
-        margin-left: 90px;
+        /*margin-left: 90px;*/
 
     }
 
@@ -636,7 +647,7 @@ header  {
     }
 
     .headerref   {
-        margin-left: 60px;
+        /*margin-left: 60px;*/
     }
 
     .headerref  a   {

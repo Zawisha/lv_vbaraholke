@@ -19,8 +19,11 @@
     text-align: center;
     margin-left: 0px;
     margin-top: 40px;
-}
 
+}
+.adminka:hover {
+    cursor: pointer;
+}
 
 
 .avapost    {

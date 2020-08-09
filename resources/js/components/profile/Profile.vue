@@ -2,10 +2,8 @@
     <div>
     <div class="container">
         <div class="row ">
-            <div class="col-12 adminka" v-if="is_admin_ent==1">
-                <router-link  :to="{ name: 'MainViewAdmin' }">
+            <div class="col-12 adminka" v-if="is_admin_ent==1" v-on:click="goto_adminka"  >
                     Админка
-                </router-link>
             </div>
         </div>
     </div>
@@ -95,6 +93,11 @@
         },
         methods: {
 
+            goto_adminka()
+            {
+                Vue.router.push({name: 'MainViewAdmin'})
+
+            },
 
             get_user_info_channel()
             {
