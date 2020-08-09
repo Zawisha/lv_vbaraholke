@@ -4391,7 +4391,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -56611,6 +56610,7 @@ var render = function() {
                   "div",
                   {
                     staticClass: "col-6 col-sm-4 viewposttext2 ",
+                    attrs: { id: "write_to_user" },
                     on: {
                       click: function($event) {
                         return _vm.write_message()

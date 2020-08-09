@@ -51,11 +51,10 @@
         </div>
 
     <div class=" col-12  d-flex justify-content-center stic">
-        <div class="col-6 col-sm-4 viewposttext2 " v-on:click="write_message()">
+        <div class="col-6 col-sm-4 viewposttext2 " id="write_to_user" v-on:click="write_message()">
                <span> Написать</span>
         </div>
         <div class="col-6 col-sm-4 viewposttext3 " id="call"  v-on:click="show_mob()">
-<!--           <span>Позвонить</span>-->
            <span>{{call_mobile}}</span>
         </div>
     </div>
