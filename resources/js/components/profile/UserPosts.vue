@@ -1,6 +1,12 @@
 <template>
     <div>
-    <div v-if="zero_posts_flag==0">Мои объявления</div>
+        <div class="container" v-if="zero_posts_flag==0">
+            <div class="row zeroposts ">
+                <div class="col-12 d-flex justify-content-center" >
+                    Мои объявления
+                </div>
+            </div>
+        </div>
 
     <div class="container" v-if="zero_posts_flag==1">
         <div class="row zeroposts ">
@@ -13,19 +19,18 @@
     <div class="container">
         <transition-group name="fade" tag="div" >
         <div :key="post.id" class="row posts " v-for="(post,number) in posts">
-            <div class="col-12 col-md-12 d-md-flex">
-                <div class="col-12  d-flex justify-content-center col-md-2 col-lg-2 " v-if="posts_img_arr[number].img_in_arr.length !=0">
+
+            <div class="col-lg-3 col-md-4 d-md-flex">
+                <div class="carousel_posts col-12  d-flex justify-content-center col-md-12 col-lg-12" v-if="posts_img_arr[number].img_in_arr.length !=0">
                         <carousel :data="posts_img_arr[number].img_in_arr"></carousel>
                 </div>
                 <div v-else>
                     <img :src="'/images/nophoto.png'" class="img-fluid">
                 </div>
-                <div>
-                    <button type="button" class="btn btn-secondary" v-on:click="user_delete_post(post.id, number)">Удалить</button>
-                </div>
+
             </div>
 
-            <div class="col-12  justify-content-center col-md-6 d-md-block col-lg-5 headerref ">
+            <div class="col-lg-4  justify-content-center col-md-6 d-md-block headerref">
                 <div class="col-12 d-flex justify-content-center  justify-content-lg-start">
 
                     <router-link  :to="{ path: '/posts/'+post.id}">{{ post.title }}</router-link>
@@ -57,12 +62,15 @@
 
                     </div>
 
-
+                    <div>
+                        <button type="button" class="col-sm-12 btn btn-secondary delete_post_user" v-on:click="user_delete_post(post.id, number)">Удалить пост</button>
+                    </div>
 
                 </div>
             </div>
+
             <div class="col-12 d-flex justify-content-center col-md-3 align-self-md-end  price ">
-                {{ post.price }}
+                {{ post.price }}  руб.
             </div>
         </div>
         </transition-group>

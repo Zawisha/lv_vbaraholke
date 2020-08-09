@@ -440,7 +440,9 @@ label {
     margin-bottom: 6px;
     display: block;
 }
-
+.delete_post_user {
+    margin-left: 10px;
+}
 #write_to_user {
     text-decoration: none;
     outline: none;

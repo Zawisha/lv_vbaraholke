@@ -6019,6 +6019,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -58090,10 +58098,12 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _vm.zero_posts_flag == 0 ? _c("div", [_vm._v("Мои объявления")]) : _vm._e(),
+    _vm.zero_posts_flag == 0
+      ? _c("div", { staticClass: "container" }, [_vm._m(0)])
+      : _vm._e(),
     _vm._v(" "),
     _vm.zero_posts_flag == 1
-      ? _c("div", { staticClass: "container" }, [_vm._m(0)])
+      ? _c("div", { staticClass: "container" }, [_vm._m(1)])
       : _vm._e(),
     _vm._v(" "),
     _c(
@@ -58105,13 +58115,13 @@ var render = function() {
           { attrs: { name: "fade", tag: "div" } },
           _vm._l(_vm.posts, function(post, number) {
             return _c("div", { key: post.id, staticClass: "row posts " }, [
-              _c("div", { staticClass: "col-12 col-md-12 d-md-flex" }, [
+              _c("div", { staticClass: "col-lg-3 col-md-4 d-md-flex" }, [
                 _vm.posts_img_arr[number].img_in_arr.length != 0
                   ? _c(
                       "div",
                       {
                         staticClass:
-                          "col-12  d-flex justify-content-center col-md-2 col-lg-2 "
+                          "carousel_posts col-12  d-flex justify-content-center col-md-12 col-lg-12"
                       },
                       [
                         _c("carousel", {
@@ -58125,30 +58135,14 @@ var render = function() {
                         staticClass: "img-fluid",
                         attrs: { src: "/images/nophoto.png" }
                       })
-                    ]),
-                _vm._v(" "),
-                _c("div", [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-secondary",
-                      attrs: { type: "button" },
-                      on: {
-                        click: function($event) {
-                          return _vm.user_delete_post(post.id, number)
-                        }
-                      }
-                    },
-                    [_vm._v("Удалить")]
-                  )
-                ])
+                    ])
               ]),
               _vm._v(" "),
               _c(
                 "div",
                 {
                   staticClass:
-                    "col-12  justify-content-center col-md-6 d-md-block col-lg-5 headerref "
+                    "col-lg-4  justify-content-center col-md-6 d-md-block headerref"
                 },
                 [
                   _c(
@@ -58245,7 +58239,24 @@ var render = function() {
                               )
                             ])
                       ]
-                    )
+                    ),
+                    _vm._v(" "),
+                    _c("div", [
+                      _c(
+                        "button",
+                        {
+                          staticClass:
+                            "col-sm-12 btn btn-secondary delete_post_user",
+                          attrs: { type: "button" },
+                          on: {
+                            click: function($event) {
+                              return _vm.user_delete_post(post.id, number)
+                            }
+                          }
+                        },
+                        [_vm._v("Удалить пост")]
+                      )
+                    ])
                   ])
                 ]
               ),
@@ -58256,7 +58267,11 @@ var render = function() {
                   staticClass:
                     "col-12 d-flex justify-content-center col-md-3 align-self-md-end  price "
                 },
-                [_vm._v("\n            " + _vm._s(post.price) + "\n        ")]
+                [
+                  _vm._v(
+                    "\n            " + _vm._s(post.price) + "  руб.\n        "
+                  )
+                ]
               )
             ])
           }),
@@ -58315,6 +58330,16 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row zeroposts " }, [
+      _c("div", { staticClass: "col-12 d-flex justify-content-center" }, [
+        _vm._v("\n                Мои объявления\n            ")
+      ])
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
