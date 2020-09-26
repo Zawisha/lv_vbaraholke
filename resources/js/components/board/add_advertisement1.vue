@@ -3,63 +3,59 @@
         <div class="container">
             <div class="row addnewpost  justify-content-center">
                 <Loading_line></Loading_line>
-                <div class="col-12 addnewuserposttext ">
+                <div class="col-12">
                     <form v-on:submit.prevent="push_the_button" method="post" enctype="multipart/form-data" id="uploadImages"  name = 'validateform'>
-                        Название товара (краткое название товара в именительном падеже)
-
-                <div class="col-12 addnewuserpostinput">
-                    <textarea @focus="delete_frame('product_name')" v-bind:class="{border_alert: elemInArr('product_name')}" v-model="product_arr['product_name']" class="input " rows="3" cols="40" type="text" name="header" placeholder="от 3 до 50 знаков"></textarea>
+                        <div class="col-12 advert_text">Название товара</div>
+                <div class="advert_text col-12">
+                    <textarea @focus="delete_frame('product_name')" v-bind:style="[elemInArr('product_name')?{'border-color': 'red'}:{'border-color': 'green'}]" v-model="product_arr['product_name']" class="input adv_textarea" maxlength="50" rows="1" type="text" name="header" placeholder="Например, холодильник Atlant"></textarea>
                 </div>
-                <div class="col-12 addnewuserposttext">
+                <div class="advert_text col-12">
                     Описание товара
                 </div>
-                <div class="col-12 addnewuserpostinput">
-                    <textarea @focus="delete_frame('product_desc')" v-bind:class="{border_alert: elemInArr('product_desc')}" v-model="product_arr['product_desc']" class="input changeinput" rows="10" type="text" name="description" placeholder="от 15 до 3000 знаков"></textarea>
-
+                <div class="col-12">
+                    <textarea @focus="delete_frame('product_desc')"  v-bind:style="[elemInArr('product_desc')?{'border-color': 'red'}:{'border-color': 'green'}]" v-model="product_arr['product_desc']" class="input adv_textarea" maxlength="3000" rows="6" type="text" name="description" placeholder="Минимум: 15 знаков"></textarea>
                 </div>
-                <div class="col-12 addnewuserposttext">
+                <div class="advert_text col-12">
                     Цена товара. (в белорусских рублях)
                 </div>
-                <div class="col-12 addnewuserpostinput">
-                    <input  @focus="delete_frame('product_price')" v-bind:class="{border_alert: elemInArr('product_price')}" v-model="product_arr['product_price']" class="input" type="number" min="0" max="9999999" name="price"  placeholder="до 7 знаков"
+                <div class="advert_text col-12">
+                    <input  @focus="delete_frame('product_price')"  v-bind:style="[elemInArr('product_price')?{'border-color': 'red'}:{'border-color': 'green'}]" v-model="product_arr['product_price']" class="input adv_textarea prod_price" type="number" min="0" max="9999999" name="price"  placeholder="до 7 знаков"
                             onkeypress="return (event.charCode >= 48 && event.charCode <= 57 && /^\d{0,6}$/.test(this.value));"
                     >.руб
                 </div>
-                <div class="col-12 addnewuserposttext">
+                <div class="advert_text col-12">
                     Выберите область
                 </div>
-                <div class="col-12 addnewuserpostinput">
-                    <div class="col-12 addnewuserpostinput">
+                <div class="col-12">
                         <select  @change="onChange('selected_region')" v-bind:class="{border_alert: elemInArr('selected_region')}" v-model="product_arr['selected_region']">
                             <option  v-for="region in regions_arr" v-bind:value="region.id">{{region.name}}</option>
                         </select>
-                    </div>
                 </div>
-                <div class="col-12 addnewuserposttext">
+                <div class="advert_text col-12">
                     Ваш город
                 </div>
-                <div class="col-12 addnewuserpostinput">
-                    <input @focus="delete_frame('city')" v-bind:class="{border_alert: elemInArr('city')}" v-model="product_arr['city']" class="input" type="text" name="city">
+                <div class="col-12">
+                    <input @focus="delete_frame('city')"  v-bind:style="[elemInArr('city')?{'border-color': 'red'}:{'border-color': 'green'}]" v-model="product_arr['city']" class="input adv_textarea prod_city" type="text" name="city">
                 </div>
-                <div class="col-12 addnewuserposttext">
+                <div class="advert_text col-12">
                     Выберите категорию
                 </div>
-                <div class="col-12 addnewuserpostinput">
+                <div class="col-12">
                     <select  @change="onChange('selected_category')" v-bind:class="{border_alert: elemInArr('selected_category')}" v-model="product_arr['selected_category']">
                         <option v-for="category in category_arr" v-bind:value="category.id">{{category.name}}</option>
                     </select>
                 </div>
-                <div class="col-12 addnewuserposttext">
+                <div class="advert_text col-12">
                     Состояние товара
                 </div>
-                <div  class="col-12 addnewuserpostinput">
+                <div  class="col-12">
                     <select @change="onChange('product_cond')" v-bind:class="{border_alert: elemInArr('product_cond')}" v-model="product_arr['product_cond']" name="condition">
                         <option  value="1">Новый</option>
                         <option  value="0">Б/у</option>
                     </select>
                 </div>
-                <div class="col-12 addnewuserpostsubmit">
-                    <input type="submit" value="Далее" >
+                <div class="col-12">
+                    <input type="submit" value="Далее >>>" class="button_next" >
                 </div>
                 </form>
             </div>
@@ -69,8 +65,6 @@
                     <li v-for="alarm_mes in alarm_mess_arr">{{ alarm_mes }}</li>
                 </ul>
                 </div>
-                <button type="button" class="btn btn-primary btn-block procedure_button" v-on:click="push_the_button1">test</button>
-
             </div>
         </div>
     </div>
@@ -87,8 +81,8 @@
 
              alarm_arr:[],
                 alarm:'',
-                alarm_mess_arr:[]
-
+                alarm_mess_arr:[],
+                product_name_var:true
 
 
             }
@@ -117,6 +111,7 @@
 
             elemInArr(numb)
             {
+                this.product_name_var=false;
                 return this.alarm_arr.indexOf(numb) === -1 ? false : true
             },
 

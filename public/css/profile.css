@@ -1,6 +1,7 @@
 
 .border_alert {
-    border:2px solid red;
+    border:1px solid red;
+    border-radius: 4px;
 }
 
 .adminka  a  {
@@ -722,6 +723,51 @@ textarea {
     clear: both;
 }
 
+.advert_text {
+    font-size: 16px;
+    font-weight: 800;
+}
+.adv_textarea {
+    border-radius: 4px;
+    border: 1px solid;
+    border-color: #2a9055;
+    padding-top: 10px;
+    padding-left: 10px;
+    caret-color: #2a9055;
+}
+.adv_textarea:focus {
+    border: 2px solid;
+    border-color: #2a9055;
+}
+.adv_textarea.prod_price {
+    padding-top: 0px;
+}
+.adv_textarea.prod_city {
+    padding-top: 0px;
+}
+
+.button_next {
+    text-decoration: none;
+    outline: none;
+    display: block;
+    color: white;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 10px;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background-image: linear-gradient(to right, #0b6d60 0%, #3f9386 51%, #0b6d60 100%);
+    background-size: 200% auto;
+    box-shadow: 0 0 40px rgba(0,0,0,.1);
+    transition: .5s;
+    border: 2px solid white;
+    margin-top: 16px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.button_next:hover {background-position: right center;}
 
 @media screen and (max-width: 1199px) {
 

@@ -17,7 +17,6 @@
 
             <div class="row userprof ">
                 <div class="col-xl-3 col-lg-3 col-md-4 userava " id=''>
-
                         <label for="customFile" class="my_pointer">
                             <img :src="image_src" id="imgavatar">
                         </label>
@@ -26,7 +25,6 @@
                                id="customFile"
                                @change="onAttachmentChange"
                         >
-
                 </div>
             </div>
 

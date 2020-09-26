@@ -3434,9 +3434,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -4673,12 +4670,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -4695,7 +4686,8 @@ __webpack_require__.r(__webpack_exports__);
       },
       alarm_arr: [],
       alarm: '',
-      alarm_mess_arr: []
+      alarm_mess_arr: [],
+      product_name_var: true
     };
   },
   mounted: function mounted() {
@@ -4716,6 +4708,7 @@ __webpack_require__.r(__webpack_exports__);
       this.alarm_arr.splice(this.alarm_arr.indexOf(product), 1);
     },
     elemInArr: function elemInArr(numb) {
+      this.product_name_var = false;
       return this.alarm_arr.indexOf(numb) === -1 ? false : true;
     },
     push_the_button: function push_the_button() {
@@ -5116,7 +5109,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {};
@@ -5150,6 +5142,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {};
@@ -5170,6 +5164,14 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -5774,8 +5776,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
 //
 //
 //
@@ -56835,7 +56835,7 @@ var render = function() {
         [
           _c("Loading_line"),
           _vm._v(" "),
-          _c("div", { staticClass: "col-12 addnewuserposttext " }, [
+          _c("div", { staticClass: "col-12" }, [
             _c(
               "form",
               {
@@ -56853,10 +56853,11 @@ var render = function() {
                 }
               },
               [
-                _vm._v(
-                  "\n                    Название товара (краткое название товара в именительном падеже)\n\n            "
-                ),
-                _c("div", { staticClass: "col-12 addnewuserpostinput" }, [
+                _c("div", { staticClass: "col-12 advert_text" }, [
+                  _vm._v("Название товара")
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "advert_text col-12" }, [
                   _c("textarea", {
                     directives: [
                       {
@@ -56866,14 +56867,18 @@ var render = function() {
                         expression: "product_arr['product_name']"
                       }
                     ],
-                    staticClass: "input ",
-                    class: { border_alert: _vm.elemInArr("product_name") },
+                    staticClass: "input adv_textarea",
+                    style: [
+                      _vm.elemInArr("product_name")
+                        ? { "border-color": "red" }
+                        : { "border-color": "green" }
+                    ],
                     attrs: {
-                      rows: "3",
-                      cols: "40",
+                      maxlength: "50",
+                      rows: "1",
                       type: "text",
                       name: "header",
-                      placeholder: "от 3 до 50 знаков"
+                      placeholder: "Например, холодильник Atlant"
                     },
                     domProps: { value: _vm.product_arr["product_name"] },
                     on: {
@@ -56894,11 +56899,11 @@ var render = function() {
                   })
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-12 addnewuserposttext" }, [
+                _c("div", { staticClass: "advert_text col-12" }, [
                   _vm._v("\n                Описание товара\n            ")
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-12 addnewuserpostinput" }, [
+                _c("div", { staticClass: "col-12" }, [
                   _c("textarea", {
                     directives: [
                       {
@@ -56908,13 +56913,18 @@ var render = function() {
                         expression: "product_arr['product_desc']"
                       }
                     ],
-                    staticClass: "input changeinput",
-                    class: { border_alert: _vm.elemInArr("product_desc") },
+                    staticClass: "input adv_textarea",
+                    style: [
+                      _vm.elemInArr("product_desc")
+                        ? { "border-color": "red" }
+                        : { "border-color": "green" }
+                    ],
                     attrs: {
-                      rows: "10",
+                      maxlength: "3000",
+                      rows: "6",
                       type: "text",
                       name: "description",
-                      placeholder: "от 15 до 3000 знаков"
+                      placeholder: "Минимум: 15 знаков"
                     },
                     domProps: { value: _vm.product_arr["product_desc"] },
                     on: {
@@ -56935,13 +56945,13 @@ var render = function() {
                   })
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-12 addnewuserposttext" }, [
+                _c("div", { staticClass: "advert_text col-12" }, [
                   _vm._v(
                     "\n                Цена товара. (в белорусских рублях)\n            "
                   )
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-12 addnewuserpostinput" }, [
+                _c("div", { staticClass: "advert_text col-12" }, [
                   _c("input", {
                     directives: [
                       {
@@ -56951,8 +56961,12 @@ var render = function() {
                         expression: "product_arr['product_price']"
                       }
                     ],
-                    staticClass: "input",
-                    class: { border_alert: _vm.elemInArr("product_price") },
+                    staticClass: "input adv_textarea prod_price",
+                    style: [
+                      _vm.elemInArr("product_price")
+                        ? { "border-color": "red" }
+                        : { "border-color": "green" }
+                    ],
                     attrs: {
                       type: "number",
                       min: "0",
@@ -56982,68 +56996,62 @@ var render = function() {
                   _vm._v(".руб\n            ")
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-12 addnewuserposttext" }, [
+                _c("div", { staticClass: "advert_text col-12" }, [
                   _vm._v("\n                Выберите область\n            ")
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-12 addnewuserpostinput" }, [
-                  _c("div", { staticClass: "col-12 addnewuserpostinput" }, [
-                    _c(
-                      "select",
-                      {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.product_arr["selected_region"],
-                            expression: "product_arr['selected_region']"
-                          }
-                        ],
-                        class: {
-                          border_alert: _vm.elemInArr("selected_region")
-                        },
-                        on: {
-                          change: [
-                            function($event) {
-                              var $$selectedVal = Array.prototype.filter
-                                .call($event.target.options, function(o) {
-                                  return o.selected
-                                })
-                                .map(function(o) {
-                                  var val = "_value" in o ? o._value : o.value
-                                  return val
-                                })
-                              _vm.$set(
-                                _vm.product_arr,
-                                "selected_region",
-                                $event.target.multiple
-                                  ? $$selectedVal
-                                  : $$selectedVal[0]
-                              )
-                            },
-                            function($event) {
-                              return _vm.onChange("selected_region")
-                            }
-                          ]
+                _c("div", { staticClass: "col-12" }, [
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.product_arr["selected_region"],
+                          expression: "product_arr['selected_region']"
                         }
-                      },
-                      _vm._l(_vm.regions_arr, function(region) {
-                        return _c(
-                          "option",
-                          { domProps: { value: region.id } },
-                          [_vm._v(_vm._s(region.name))]
-                        )
-                      }),
-                      0
-                    )
-                  ])
+                      ],
+                      class: { border_alert: _vm.elemInArr("selected_region") },
+                      on: {
+                        change: [
+                          function($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function(o) {
+                                return o.selected
+                              })
+                              .map(function(o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
+                            _vm.$set(
+                              _vm.product_arr,
+                              "selected_region",
+                              $event.target.multiple
+                                ? $$selectedVal
+                                : $$selectedVal[0]
+                            )
+                          },
+                          function($event) {
+                            return _vm.onChange("selected_region")
+                          }
+                        ]
+                      }
+                    },
+                    _vm._l(_vm.regions_arr, function(region) {
+                      return _c("option", { domProps: { value: region.id } }, [
+                        _vm._v(_vm._s(region.name))
+                      ])
+                    }),
+                    0
+                  )
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-12 addnewuserposttext" }, [
+                _c("div", { staticClass: "advert_text col-12" }, [
                   _vm._v("\n                Ваш город\n            ")
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-12 addnewuserpostinput" }, [
+                _c("div", { staticClass: "col-12" }, [
                   _c("input", {
                     directives: [
                       {
@@ -57053,8 +57061,12 @@ var render = function() {
                         expression: "product_arr['city']"
                       }
                     ],
-                    staticClass: "input",
-                    class: { border_alert: _vm.elemInArr("city") },
+                    staticClass: "input adv_textarea prod_city",
+                    style: [
+                      _vm.elemInArr("city")
+                        ? { "border-color": "red" }
+                        : { "border-color": "green" }
+                    ],
                     attrs: { type: "text", name: "city" },
                     domProps: { value: _vm.product_arr["city"] },
                     on: {
@@ -57071,11 +57083,11 @@ var render = function() {
                   })
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-12 addnewuserposttext" }, [
+                _c("div", { staticClass: "advert_text col-12" }, [
                   _vm._v("\n                Выберите категорию\n            ")
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-12 addnewuserpostinput" }, [
+                _c("div", { staticClass: "col-12" }, [
                   _c(
                     "select",
                     {
@@ -57126,11 +57138,11 @@ var render = function() {
                   )
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-12 addnewuserposttext" }, [
+                _c("div", { staticClass: "advert_text col-12" }, [
                   _vm._v("\n                Состояние товара\n            ")
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-12 addnewuserpostinput" }, [
+                _c("div", { staticClass: "col-12" }, [
                   _c(
                     "select",
                     {
@@ -57196,17 +57208,7 @@ var render = function() {
                   0
                 )
               ])
-            : _vm._e(),
-          _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-primary btn-block procedure_button",
-              attrs: { type: "button" },
-              on: { click: _vm.push_the_button1 }
-            },
-            [_vm._v("test")]
-          )
+            : _vm._e()
         ],
         1
       )
@@ -57218,8 +57220,11 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-12 addnewuserpostsubmit" }, [
-      _c("input", { attrs: { type: "submit", value: "Далее" } })
+    return _c("div", { staticClass: "col-12" }, [
+      _c("input", {
+        staticClass: "button_next",
+        attrs: { type: "submit", value: "Далее >>>" }
+      })
     ])
   }
 ]
@@ -57494,9 +57499,29 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._v("\n        contacts\n")])
+  return _vm._m(0)
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass:
+          "row col-lg-12 d-flex justify-content-center col-md-12 col-sm-12 col-12"
+      },
+      [
+        _c("div", { staticClass: "col-6" }, [
+          _vm._v(
+            "\n        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n    "
+          )
+        ])
+      ]
+    )
+  }
+]
 render._withStripped = true
 
 
@@ -57518,9 +57543,29 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._v("\nrules 1\n    ")])
+  return _vm._m(0)
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass:
+          "row col-lg-12 d-flex justify-content-center col-md-12 col-sm-12 col-12"
+      },
+      [
+        _c("div", { staticClass: "col-6" }, [
+          _vm._v(
+            "\n        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n    "
+          )
+        ])
+      ]
+    )
+  }
+]
 render._withStripped = true
 
 
@@ -57543,142 +57588,187 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container " }, [
-    _vm.err_mess_flag_email
-      ? _c(
-          "div",
-          { staticClass: "col-6 newpasswordform col-md-8 col-12" },
-          _vm._l(_vm.error_arr_message_email, function(mess, number) {
-            return _c(
-              "div",
-              {
-                staticClass: "col-12 newpassubmit d-flex justify-content-center"
-              },
-              [_vm._v("\n            " + _vm._s(mess) + "\n        ")]
-            )
-          }),
-          0
-        )
-      : _vm._e(),
-    _vm._v(" "),
-    _vm.success_change_email
-      ? _c("div", { staticClass: "col-6 newpasswordform col-md-8 col-12" }, [
-          _c(
-            "div",
-            {
-              staticClass: "col-12 newpassubmit d-flex justify-content-center"
-            },
-            [_vm._v("\n            Email успешно изменён\n        ")]
-          )
-        ])
-      : _vm._e(),
-    _vm._v(" "),
-    _c("div", { staticClass: "newpass col-sm-12 d-sm-flex " }, [
-      _c("div", { staticClass: "col-12 col-sm-6 newpass1" }, [
-        _vm._v("Введите email")
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-12 col-sm-6 newpass2" }, [
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.email,
-              expression: "email"
-            }
-          ],
-          staticClass: "input",
-          attrs: { type: "email", name: "email" },
-          domProps: { value: _vm.email },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.email = $event.target.value
-            }
-          }
-        })
-      ])
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "col-xl-3 col-lg-5 col-md-8 " }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-primary btn-block procedure_button",
-          attrs: { type: "button" },
-          on: {
-            click: function($event) {
-              return _vm.change_email()
-            }
-          }
-        },
-        [_vm._v("Сохранить")]
-      )
-    ]),
-    _vm._v(" "),
-    _vm.err_mess_flag
-      ? _c(
-          "div",
-          { staticClass: "col-6 newpasswordform col-md-8 col-12" },
-          _vm._l(_vm.error_arr_message, function(mess, number) {
-            return _c(
-              "div",
-              {
-                staticClass: "col-12 newpassubmit d-flex justify-content-center"
-              },
-              [_vm._v("\n            " + _vm._s(mess) + "\n        ")]
-            )
-          }),
-          0
-        )
-      : _vm._e(),
-    _vm._v(" "),
-    _vm.success_change_mobile
-      ? _c("div", { staticClass: "col-6 newpasswordform col-md-8 col-12" }, [
-          _c(
-            "div",
-            {
-              staticClass: "col-12 newpassubmit d-flex justify-content-center"
-            },
-            [_vm._v("\n            Телефон успешно изменён\n        ")]
-          )
-        ])
-      : _vm._e(),
-    _vm._v(" "),
     _c(
       "div",
-      { staticClass: "newpass col-sm-12 d-sm-flex " },
+      {
+        staticClass:
+          "row newpassword newpasswordform col-lg-12 d-flex justify-content-center col-md-12 col-sm-12 col-12"
+      },
       [
-        _c("masked-input", {
-          attrs: {
-            mask: "\\+111-(11)-111-11-11",
-            placeholder: "+XXX(XX)-XXX-XX-XX"
-          },
-          model: {
-            value: _vm.mobile,
-            callback: function($$v) {
-              _vm.mobile = $$v
+        _vm.err_mess_flag_email
+          ? _c(
+              "div",
+              { staticClass: "col-6 col-md-8 col-12" },
+              _vm._l(_vm.error_arr_message_email, function(mess) {
+                return _c(
+                  "div",
+                  {
+                    staticClass:
+                      "col-12 newpassubmit d-flex justify-content-center"
+                  },
+                  [_c("div", [_vm._v(_vm._s(mess))])]
+                )
+              }),
+              0
+            )
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.success_change_email
+          ? _c("div", { staticClass: "col-6 col-md-8 col-12" }, [
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "col-12 newpassubmit d-flex justify-content-center"
+                },
+                [
+                  _vm._v(
+                    "\n                Email успешно изменён\n            "
+                  )
+                ]
+              )
+            ])
+          : _vm._e(),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-8 col-12" }, [
+          _c("div", { staticClass: "newpass col-sm-12 d-sm-flex " }, [
+            _c("div", { staticClass: "col-12 col-sm-6 newpass1" }, [
+              _vm._v("Email")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-12 col-sm-6 newpass2" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.email,
+                    expression: "email"
+                  }
+                ],
+                staticClass: "input",
+                attrs: { type: "email", name: "email" },
+                domProps: { value: _vm.email },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.email = $event.target.value
+                  }
+                }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "col-12 newpassubmit d-flex justify-content-center"
             },
-            expression: "mobile"
-          }
-        })
-      ],
-      1
-    ),
-    _vm._v(" "),
-    _c("div", { staticClass: "col-xl-3 col-lg-5 col-md-8 " }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-primary btn-block procedure_button",
-          attrs: { type: "button" },
-          on: { click: _vm.change }
-        },
-        [_vm._v("Сохранить телефон")]
-      )
-    ])
+            [
+              _c(
+                "button",
+                {
+                  attrs: { type: "button" },
+                  on: {
+                    click: function($event) {
+                      return _vm.change_email()
+                    }
+                  }
+                },
+                [_vm._v("Сохранить email")]
+              )
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _vm.err_mess_flag
+          ? _c(
+              "div",
+              { staticClass: "col-6 col-md-8 col-12" },
+              _vm._l(_vm.error_arr_message, function(mess) {
+                return _c(
+                  "div",
+                  {
+                    staticClass:
+                      "col-12 newpassubmit d-flex justify-content-center"
+                  },
+                  [_c("div", [_vm._v(_vm._s(mess))])]
+                )
+              }),
+              0
+            )
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.success_change_mobile
+          ? _c("div", { staticClass: "col-6 col-md-8 col-12" }, [
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "col-12 newpassubmit d-flex justify-content-center"
+                },
+                [
+                  _vm._v(
+                    "\n                    Телефон успешно изменён\n                "
+                  )
+                ]
+              )
+            ])
+          : _vm._e(),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-8 col-12" }, [
+          _c("div", { staticClass: "newpass col-sm-12 d-sm-flex " }, [
+            _c("div", { staticClass: "col-12 col-sm-6 newpass1" }, [
+              _vm._v("Телефон")
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "col-12 col-sm-6 newpass2" },
+              [
+                _c("masked-input", {
+                  attrs: {
+                    mask: "\\+111-(11)-111-11-11",
+                    placeholder: "+XXX(XX)-XXX-XX-XX"
+                  },
+                  model: {
+                    value: _vm.mobile,
+                    callback: function($$v) {
+                      _vm.mobile = $$v
+                    },
+                    expression: "mobile"
+                  }
+                })
+              ],
+              1
+            )
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "col-12 newpassubmit d-flex justify-content-center"
+            },
+            [
+              _c(
+                "button",
+                {
+                  attrs: { type: "button" },
+                  on: {
+                    click: function($event) {
+                      return _vm.change()
+                    }
+                  }
+                },
+                [_vm._v("Сохранить телефон")]
+              )
+            ]
+          )
+        ])
+      ]
+    )
   ])
 }
 var staticRenderFns = []
@@ -75378,20 +75468,26 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_5__["default"]({
       name: 'AdminMain',
       component: _components_Admin_AdminMain__WEBPACK_IMPORTED_MODULE_35__["default"],
       beforeEnter: function beforeEnter(to, from, next) {
-        var is_admin_ent = '';
-        axios__WEBPACK_IMPORTED_MODULE_3___default.a.post('/is_admin', {}).then(function (response) {
-          if (response.data.length != 0) {
-            is_admin_ent = response.data[0].status;
+        if (auth.user) {
+          var is_admin_ent = '';
+          axios__WEBPACK_IMPORTED_MODULE_3___default.a.post('/is_admin', {}).then(function (response) {
+            if (response.data.length != 0) {
+              is_admin_ent = response.data[0].status;
 
-            if (is_admin_ent == 1) {
-              next({});
-            } else {
-              next({
-                path: '/'
-              });
+              if (is_admin_ent == 1) {
+                next({});
+              } else {
+                next({
+                  path: '/'
+                });
+              }
             }
-          }
-        });
+          });
+        } else {
+          next({
+            path: '/'
+          });
+        }
       },
       children: [{
         path: '/admin',

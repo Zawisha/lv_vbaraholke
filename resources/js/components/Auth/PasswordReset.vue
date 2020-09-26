@@ -5,9 +5,6 @@
           <div >{{mes}}</div>
         </div>
     </div>
-
-
-
     <div class=" newpasswordform col-md-8 col-12 ">
         <form v-on:submit.prevent="reset_password" method="post">
             <div class="newpass col-sm-12 d-sm-flex ">

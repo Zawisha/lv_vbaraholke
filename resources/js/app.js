@@ -299,7 +299,7 @@ const router = new VueRouter({
                     component: AdminMain,
 
                     beforeEnter: (to, from, next) => {
-
+                        if(auth.user){
                         let is_admin_ent =''
                         axios
                             .post('/is_admin',{
@@ -319,7 +319,10 @@ const router = new VueRouter({
                             }
 
                         })
-
+                        }
+                        else {
+                            next({ path: '/' })
+                        }
                     },
                     children: [
                         {

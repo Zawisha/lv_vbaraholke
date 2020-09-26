@@ -1,46 +1,54 @@
 <template>
     <div class="container ">
 
-        <div class="col-6 newpasswordform col-md-8 col-12" v-if="err_mess_flag_email">
-            <div class="col-12 newpassubmit d-flex justify-content-center" v-for="(mess,number) in error_arr_message_email">
-                {{mess}}
-            </div>
-        </div>
-        <div class="col-6 newpasswordform col-md-8 col-12" v-if="success_change_email">
-            <div class="col-12 newpassubmit d-flex justify-content-center">
-                Email успешно изменён
-            </div>
-        </div>
-        <div class="newpass col-sm-12 d-sm-flex ">
-            <div class="col-12 col-sm-6 newpass1">Введите email</div>
-            <div class="col-12 col-sm-6 newpass2">
-                <input class="input" type="email" name="email" v-model="email">
-            </div>
-        </div>
-        <div class="col-xl-3 col-lg-5 col-md-8 ">
-            <button type="button" class="btn btn-primary btn-block procedure_button" v-on:click="change_email()">Сохранить</button>
-        </div>
+        <div class="row newpassword newpasswordform col-lg-12 d-flex justify-content-center col-md-12 col-sm-12 col-12">
 
-        <div class="col-6 newpasswordform col-md-8 col-12" v-if="err_mess_flag">
-            <div class="col-12 newpassubmit d-flex justify-content-center" v-for="(mess,number) in error_arr_message">
-                {{mess}}
+            <div class="col-6 col-md-8 col-12" v-if="err_mess_flag_email">
+                <div class="col-12 newpassubmit d-flex justify-content-center" v-for="(mess) in error_arr_message_email">
+                    <div >{{mess}}</div>
+                </div>
             </div>
-        </div>
-        <div class="col-6 newpasswordform col-md-8 col-12" v-if="success_change_mobile">
-            <div class="col-12 newpassubmit d-flex justify-content-center">
-                Телефон успешно изменён
+            <div class="col-6 col-md-8 col-12" v-if="success_change_email">
+                <div class="col-12 newpassubmit d-flex justify-content-center">
+                    Email успешно изменён
+                </div>
             </div>
-        </div>
-
-            <div class="newpass col-sm-12 d-sm-flex ">
-                <masked-input mask="\+111-(11)-111-11-11" placeholder="+XXX(XX)-XXX-XX-XX"  v-model="mobile" />
+            <div class="col-md-8 col-12">
+                    <div class="newpass col-sm-12 d-sm-flex ">
+                        <div class="col-12 col-sm-6 newpass1">Email</div>
+                        <div class="col-12 col-sm-6 newpass2">
+                            <input class="input" type="email" name="email" v-model="email">
+                        </div>
+                    </div>
+                    <div class="col-12 newpassubmit d-flex justify-content-center">
+                        <button  type="button" v-on:click="change_email()">Сохранить email</button>
+                    </div>
             </div>
 
-        <div class="col-xl-3 col-lg-5 col-md-8 ">
-            <button type="button" class="btn btn-primary btn-block procedure_button" v-on:click="change">Сохранить телефон</button>
-        </div>
+                <div class="col-6 col-md-8 col-12" v-if="err_mess_flag">
+                    <div class="col-12 newpassubmit d-flex justify-content-center" v-for="(mess) in error_arr_message">
+                        <div >{{mess}}</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-8 col-12" v-if="success_change_mobile">
+                    <div class="col-12 newpassubmit d-flex justify-content-center">
+                        Телефон успешно изменён
+                    </div>
+                </div>
+                <div class="col-md-8 col-12">
+                    <div class="newpass col-sm-12 d-sm-flex ">
+                        <div class="col-12 col-sm-6 newpass1">Телефон</div>
+                        <div class="col-12 col-sm-6 newpass2">
+                            <masked-input mask="\+111-(11)-111-11-11" placeholder="+XXX(XX)-XXX-XX-XX"  v-model="mobile" />
+                        </div>
+                    </div>
+                    <div class="col-12 newpassubmit d-flex justify-content-center">
+                        <button  type="button" v-on:click="change()">Сохранить телефон</button>
+                    </div>
+                </div>
 
-    </div>
+            </div>
+        </div>
 </template>
 
 <script>
